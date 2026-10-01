@@ -93,7 +93,7 @@ class CompanySettings extends Table {
 
 @DriftDatabase(tables: [Clients, Projects, TimeEntries, Expenses, Invoices, Todos, CompanySettings])
 class AppDatabase extends _$AppDatabase {
-  AppDatabase() : super(_openConnection());
+  AppDatabase([QueryExecutor? executor]) : super(executor ?? _openConnection());
 
   @override
   int get schemaVersion => 3; // FIX: Incremented schema version to 3
